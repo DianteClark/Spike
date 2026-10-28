@@ -197,6 +197,29 @@ table.box{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;
 .replay.rp-on .rp-badge,.replay.rp-on .rp-title{opacity:1;transform:none}
 .rp-skip{position:absolute;bottom:11%;right:2cqw;pointer-events:auto;border:1px solid var(--line);background:rgba(8,10,16,.85);border-radius:6px;padding:.4cqw 1.2cqw;font-family:var(--f-tv);font-weight:800;font-size:max(11px,1.6cqw);letter-spacing:.1em;cursor:pointer;opacity:0;transition:opacity .3s .4s}
 .replay.rp-on .rp-skip{opacity:1}
+/* Win probability */
+.wp{display:block;width:72px;height:4px;margin-top:3px;border-radius:2px;background:var(--them);overflow:hidden}.wp i{display:block;height:100%;width:50%;background:var(--us-2);transition:width .6s cubic-bezier(.2,.9,.2,1)}
+.wpt{font-size:10px;letter-spacing:.12em;color:var(--muted);margin-top:1px;font-variant-numeric:tabular-nums}
+/* Player card */
+.pcard{position:absolute;top:5cqw;right:1.6cqw;z-index:3;width:min(330px,46cqw);max-height:calc(100% - 12cqw);overflow:auto;padding:12px;border-radius:12px;background:rgba(10,13,20,.94);border:1px solid var(--line);border-top:3px solid var(--us-2);font-size:12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 14px 40px rgba(0,0,0,.5);animation:cardIn .25s cubic-bezier(.2,.9,.2,1) both}
+.pcard.them{border-top-color:var(--them-2)}
+.stage.portrait .pcard{top:auto;bottom:14cqw;left:3cqw;right:3cqw;width:auto;max-height:62%}
+.pc-head{display:flex;align-items:center;gap:10px}.pc-head canvas{width:52px;height:52px;flex:none}
+.pc-id{display:flex;flex-direction:column;min-width:0;flex:1}.pc-id b{font-family:var(--f-tv);font-weight:800;font-size:18px;line-height:1.05;text-transform:uppercase}.pc-id span{color:var(--muted)}
+.pc-x{flex:none;width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);cursor:pointer;font-size:18px;line-height:1}
+.pc-phys,.pc-state,.pc-box{margin:0;color:var(--muted)}.pc-state{color:var(--ink)}
+.pc-rates{display:grid;gap:4px}
+.pc-r{display:grid;grid-template-columns:58px minmax(0,1fr) 26px 30px;align-items:center;gap:6px;font-family:var(--f-tv);font-weight:700;font-size:13px}
+.pc-r b{text-align:right;font-variant-numeric:tabular-nums}.pc-r em{font-style:normal;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}.pc-r em.up{color:#3ddc84}.pc-r em.dn{color:#ff7088}
+.pc-bar{height:6px;border-radius:3px;background:#05070c;overflow:hidden}.pc-bar i{display:block;height:100%;background:linear-gradient(90deg,#2a62ff,var(--us-2))}.pc-bar i.dn{background:linear-gradient(90deg,#a3122c,var(--them-2))}
+.pc-skills{display:grid;gap:4px}.pc-sk{display:flex;flex-direction:column;padding:5px 8px;border-radius:7px;background:var(--panel-2)}.pc-sk b{font-size:13px}.pc-sk span{color:var(--muted);font-size:11px}.pc-sk.team{box-shadow:inset 3px 0 0 var(--gold)}
+/* Results extras */
+.mvp{display:flex;align-items:center;gap:12px;margin-top:12px;padding:8px 12px 8px 4px;border-radius:12px;background:linear-gradient(110deg,#16224f,#1b2f6e);border:1px solid rgba(255,200,61,.35);overflow:hidden}
+.mvp.them{background:linear-gradient(110deg,#3a0b16,#6d1022)}
+.mvp canvas{width:88px;height:88px;flex:none}.mvp small{display:block;font-family:var(--f-tv);font-weight:800;font-size:11px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+.mvp b{display:block;font-family:var(--f-tv);font-weight:800;font-size:22px;text-transform:uppercase;line-height:1.1}.mvp span{color:var(--muted);font-size:12px}
+.cbtn.hl{margin-top:10px;width:100%;background:linear-gradient(100deg,#2a5cff,#36d0ff);border:0;color:#fff}
+.rp-sub{position:absolute;bottom:calc(11% + max(18px,3.4cqw));left:2cqw;font-family:var(--f-tv);font-weight:700;font-size:max(11px,1.5cqw);letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
 /* Coach bar */
 .cb{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:8px;align-items:center;padding-bottom:env(safe-area-inset-bottom,0px)}
 .cbtn{min-height:48px;padding:0 16px;border-radius:9px;border:1px solid var(--line);background:var(--panel-2);cursor:pointer;font-family:var(--f-tv);font-weight:800;font-size:16px;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;touch-action:manipulation;white-space:nowrap}
@@ -250,6 +273,7 @@ table.box{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;
 @media (max-height:520px){
   .app{gap:6px;padding-block:6px}.brow{padding-block:2px}.pts{font-size:24px}.abbr{font-size:17px}
   .cbtn{min-height:38px}.cb .seg label{padding:8px 4px}.stylepill b{font-size:16px}
+  .wp{display:none}.wpt{margin-top:0}
 }
 @media (prefers-reduced-motion:reduce){.ci-lines{animation:ciDim var(--dur) both}.lt{transition:none}.pts.pop,.meter .fill::after,.fire,.rally.bump,.rp-wipe,.card,.cbtn.to.queued{animation:none}}
 </style>
@@ -257,7 +281,7 @@ table.box{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;
 <div class="app">
   <header class="bug" aria-label="Scoreboard">
     <div class="bt us"><span class="abbr">HSZ</span><i class="fire" id="fireUs" hidden></i><span class="tfull">Hoshizora High</span><span class="sets" id="setsUs"></span><i class="srv" id="srvUs"></i><b class="pts" id="scoreUs">0</b></div>
-    <div class="bmid"><b id="setLabel">PRE-MATCH</b><span id="metaInfo">To 25</span></div>
+    <div class="bmid"><b id="setLabel">PRE-MATCH</b><span id="metaInfo">To 25</span><span class="wp" title="Hoshizora win probability"><i id="wpFill"></i></span><small class="wpt" id="wpTxt">WIN 50%</small></div>
     <div class="bt them"><b class="pts" id="scoreThem">0</b><i class="srv" id="srvThem"></i><span class="sets" id="setsThem"></span><i class="fire" id="fireThem" hidden></i><span class="tfull">Tetsuheki Academy</span><span class="abbr">TTH</span></div>
     <div class="brow">
       <div class="sb us"><span>Bond</span><div class="meter"><div class="fill" id="meterUs"></div></div><b id="spiritUs">20</b><span class="tos" id="tosUs" title="Timeouts left"></span></div>
@@ -275,7 +299,11 @@ table.box{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;
       <div class="rally" id="rally" hidden>RALLY <b id="rallyN">0</b></div>
       <div class="spb" id="spb"></div>
       <div class="tob" id="tob"></div>
-      <div class="replay" id="replay" hidden><div class="rp-wipe"></div><div class="rp-bar top"></div><div class="rp-bar bot"></div><div class="rp-badge"><i></i>INSTANT REPLAY</div><div class="rp-title" id="rpTitle"></div><button class="rp-skip" id="rpSkip" type="button">Skip ▸▸</button></div>
+      <div class="replay" id="replay" hidden><div class="rp-wipe"></div><div class="rp-bar top"></div><div class="rp-bar bot"></div><div class="rp-badge"><i></i>INSTANT REPLAY</div><div class="rp-title" id="rpTitle"></div><div class="rp-sub" id="rpSub" hidden></div><button class="rp-skip" id="rpSkip" type="button">Skip ▸▸</button></div>
+      <div class="pcard" id="pcard" hidden>
+        <div class="pc-head"><span id="pcFace"></span><div class="pc-id"><b id="pcName"></b><span id="pcSub"></span></div><button class="pc-x" id="pcClose" type="button" aria-label="Close player card">×</button></div>
+        <p class="pc-phys" id="pcPhys"></p><div class="pc-rates" id="pcRates"></div><p class="pc-state" id="pcState"></p><div class="pc-skills" id="pcSkills"></div><p class="pc-box" id="pcBox"></p>
+      </div>
       <div class="cutin" id="cutin" hidden></div>
     </div>
   </div>
@@ -298,7 +326,7 @@ table.box{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;
       <div><div class="eyebrow" id="sheetEyebrow">SPRING NATIONALS · QUARTERFINAL</div><div class="logo">HOSHIZORA SPIKE!!</div></div>
       <div id="introBlock">
         <h2>You coach Hoshizora High. Tetsuheki's Iron Wall is waiting.</h2>
-        <p>Pick a play style the whole roster believes in. Once the whistle blows, the only way to change it is to burn a timeout.</p>
+        <p>Pick a play style the whole roster believes in. Once the whistle blows you can only change it in a huddle: your timeouts, their timeouts, or between sets. Tap any player during the match for their scouting card.</p>
         <ul class="steps">
           <li><span class="n">1</span><span><b>Offense, serve, defense.</b> Each player loves or hates every option. Cohesion shows how well the roster buys in.</span></li>
           <li><span class="n">2</span><span><b>Firepower vs chemistry.</b> Power feeds Sora but frustrates Kaito. Tempo flips it. Tetsuheki scouts you and counters.</span></li>
@@ -309,7 +337,9 @@ table.box{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;
       <div id="resultBlock" hidden>
         <p class="result" id="resultTitle"></p>
         <p id="resultLine"></p>
+        <div class="mvp" id="mvp"><span id="mvpFace"></span><div><small>Player of the match</small><b id="mvpName"></b><span id="mvpLine"></span></div></div>
         <div class="stats" id="statsGrid"></div>
+        <button class="cbtn hl" id="hlBtn" type="button" hidden>Watch highlights</button>
         <div class="box-sec"><h3>Hoshizora box score</h3><div class="box-wrap"><table class="box" id="boxUs"></table></div>
         <h3>Tetsuheki box score</h3><div class="box-wrap"><table class="box" id="boxThem"></table></div>
         <p class="hint">K kills · E errors · % hitting · A aces · B blocks · D digs · Rec pass average 0–3</p></div>
@@ -658,7 +688,7 @@ function engAttack(st){
 }
 function gainSp(id,n){const p=P[id];if(p.lock)return;const was=p.sp;p.sp=clamp(p.sp+n*.8*(.55+.6*cohEff(p.team)/100),0,100);if(was<100&&p.sp>=100&&SK_OF[id]&&typeof onBreakoutReady==='function')onBreakoutReady(id);}
 function applyStats(e){if(e.st)for(const [id,key,n] of e.st)P[id].box[key]+=n===undefined?1:n;if(e.sp)for(const [id,n] of e.sp)gainSp(id,n);}
-function applyPoint(w){const l=other(w),Tw=team(w),Tl=team(l);Tw.score++;Tw.streak++;Tl.streak=0;
+function applyPoint(w){const l=other(w),Tw=team(w),Tl=team(l);Tw.score++;Tw.streak++;Tl.streak=0;G.ptsTot=(G.ptsTot||0)+1;if(w==='us')G.ptsUs=(G.ptsUs||0)+1;
   for(const id in P)if(P[id].zone>0)P[id].zone--;G.newZone=[];for(const u of G.rallyUsed||[])if(u.k===w)for(const id of u.who){if(!(P[id].zone>0))G.newZone.push(id);P[id].zone=3;}
   const sideout=G.serving!==w;if(sideout){Tw.lineup=Tw.lineup.slice(1).concat(Tw.lineup[0]);G.serving=w;}
   Tw.meter=clamp(Tw.meter+spiritGain(w,3),0,100);Tl.meter=clamp(Tl.meter+spiritGain(l,2),0,100);
@@ -668,6 +698,18 @@ function applyPoint(w){const l=other(w),Tw=team(w),Tl=team(l);Tw.score++;Tw.stre
   const on=new Set([...G.court.us,...G.court.them]);
   for(const id in P){if(on.has(id))tire(id,.3);else P[id].sta=Math.min(100,P[id].sta+3);}
   G.stats.rallies++;G.sinceReplay++;return sideout;}
+/* Win probability: estimate Hoshizora's point-win rate from the match so far (blended with a cohesion prior),
+   then solve the set and match exactly from the current score, win-by-two included. */
+function pSet(a,b,t,p){const memo=new Map();const f=(x,y)=>{if(x>=t&&x-y>=2)return 1;if(y>=t&&y-x>=2)return 0;
+  if(x>=t-1&&y>=t-1&&x===y){const q=p*p,r=(1-p)*(1-p);return q/(q+r);}
+  const key=x*100+y;if(memo.has(key))return memo.get(key);const v=p*f(x+1,y)+(1-p)*f(x,y+1);memo.set(key,v);return v;};return f(a,b);}
+function winProb(){const U=G.T.us,X=G.T.them;if(!G.playing&&!(U.sets+X.sets))return .5;
+  const pts=G.ptsUs||0,tot=G.ptsTot||0,prior=clamp(.5+(cohesion('us')-cohesion('them'))/5000-(G.diff.f-.95)*.5,.45,.55);
+  const p=clamp((pts+prior*30)/(tot+30),.4,.6),need=Math.ceil(G.bestOf/2);
+  const cur=G.playing?pSet(U.score,X.score,G.target,p):(U.sets>X.sets?1:0);if(!G.playing)return cur;
+  const memo=new Map();const m=(a,b,setNo)=>{if(a>=need)return 1;if(b>=need)return 0;const k=a*10+b;if(memo.has(k))return memo.get(k);
+    const q=pSet(0,0,setNo===G.bestOf&&G.bestOf>1?15:25,p);const v=q*m(a+1,b,setNo+1)+(1-q)*m(a,b+1,setNo+1);memo.set(k,v);return v;};
+  return cur*m(U.sets+1,X.sets,G.setNo+1)+(1-cur)*m(U.sets,X.sets+1,G.setNo+1);}
 function coachTimeout(k){const T=team(k),O=team(other(k));if(T.to<=0)return false;const late=Math.max(T.score,O.score)>=G.target-6;
   const avg=G.court[k].reduce((s,id)=>s+P[id].sta,0)/6;
   return (O.streak>=3&&rnd()<.6)||(O.streak>=2&&late&&O.score>=T.score&&rnd()<.45)||(avg<42&&rnd()<.4);}
@@ -707,6 +749,7 @@ function sfx(k,arg){if(!AC||G.paused||G.speed>2)return;try{switch(k){
   case 'horn':tone(220,220,.6,'sawtooth',.045);tone(277,277,.6,'sawtooth',.035);break;
   case 'cutin':tone(180,1400,.35,'sawtooth',.04);noise(.4,.12,4000);break;
   case 'tick':noise(.03,.16,2600);break;
+  case 'beat':tone(70,45,.18,'sine',.5);tone(64,40,.2,'sine',.38,.2);break;
   case 'ready':tone(880,880,.12,'sine',.08);tone(1320,1320,.2,'sine',.07,.08);break;
   case 'crowd':{const t=AC.currentTime,s_=AC.createBufferSource();s_.buffer=noiseBuf;s_.loop=true;const f=AC.createBiquadFilter();f.type='bandpass';f.frequency.value=900;f.Q.value=.6;const v=AC.createGain();const g=.04+.12*(arg||0);v.gain.setValueAtTime(.001,t);v.gain.exponentialRampToValueAtTime(g,t+.15);v.gain.exponentialRampToValueAtTime(.001,t+1.4);s_.connect(f).connect(v).connect(AC.destination);s_.start(t);s_.stop(t+1.5);break;}
 }}catch(e){}}
@@ -791,10 +834,13 @@ const PLAY={
     ticker(`${T.abbr} serve`,`${P[e.server].ch.name} serves${T.streak>=2?` · ${T.abbr} on a ${T.streak}-point run`:''}${e.skill?` · ${e.skill}`:''}`,sk);
     await wait(1250);
     const sp=W2(sk,[ZONE[1][0]-.15,ZONE[1][1]]);Object.assign(G.ball,{x:sp.x,y:sp.y,z:30,vis:true});G.ball.trail.length=0;G.active=e.server;
+    const big=Math.max(G.T.us.score,G.T.them.score)>=G.target-1&&G.T.us.score!==G.T.them.score;
+    if(big&&!G.replaying){camTo(sp,1.12);G.tense=G.time;sfx('beat');setTimeout(()=>sfx('beat'),520);}
     await wait(200);
     for(let i=0;i<2;i++){await arc(sp,170,0,0);sfx('tick');await arc(sp,190,0,30);}
     await wait(160);
     const sv=P[e.server],jumpSrv=T.sty.srv==='jump'||!!e.skill;sv.jDur=jumpSrv?560:340;sv.jK=jumpSrv?1:.3;sv.jT0=G.time+380-sv.jDur/2;
+    if(big)slowmo(520);
     await arc(sp,380,90,150);sfx('spike');touch();
     applyStats(e);G.ball.fx=e.fx||null;
     contact(sp,e.fx||'#ffffff',e.fx?2:1);
@@ -870,6 +916,8 @@ const PLAY={
     for(const id of G.newZone||[]){const p=P[id];zoneFx(id);feed(`${p.ch.name} is in the zone`,w==='us'?'sys':'them');}
     G.ref={w,t0:G.time};
     feed(e.why,w);ticker(`${team(w).abbr} point`,e.why,w);updateUI();setPointBanner();
+    const line=commentary(w,e,attacks,skills);if(line)setTimeout(()=>{if(G.playing)ticker('Color',line,w);},1300/Math.max(1,G.speed*.6));
+    {const wt=attacks*1.2+skills*2.2+(e.lt&&e.lt[0]!=='KILL'?1:0)+(e.why.includes('clash')?3:0)+leverage()*2.5;if(G.rec.snaps.length>12&&wt>=2.5){G.highlights.push({rec:G.rec,w,wt,title:e.why,sc:`${G.T.us.abbr} ${G.T.us.score}–${G.T.them.score} ${G.T.them.abbr} · Set ${G.setNo}`});G.highlights.sort((a,b)=>b.wt-a.wt);G.highlights.length=Math.min(G.highlights.length,3);}}
     const T=team(w);if(T.streak===4){feed(`${T.name} are on fire: 4 straight`,w);}
     // instant replay: long rallies, skill chains, skill finishes on big points
     let why=null;
@@ -883,6 +931,19 @@ const PLAY={
 };
 function onBreakoutReady(id){if(!G.live||G.replaying)return;const p=P[id];label('BREAKOUT READY',elev(p.x,p.y,30),'#ffc83d');sfx('ready');
   feed(`${p.ch.name} is ready to break out`,p.team==='us'?'sys':'them');}
+function commentary(w,e,attacks,skills){const T=team(w),O=team(other(w)),lines=[];
+  const def=O.score-T.score;G.maxDef[w]=Math.max(G.maxDef[w]||0,-def+1);
+  if(T.streak===3||T.streak===5||T.streak>=7)lines.push(`${T.name} on a ${T.streak}-0 run. ${O.name} need an answer.`);
+  if(def<=0&&(G.maxDef[w]||0)>=5&&T.score===O.score){lines.push(`${T.name} have erased a ${G.maxDef[w]}-point deficit. All square at ${T.score}.`);G.maxDef[w]=0;}
+  if(e.lt){const id=e.lt[1],b=P[id].box;
+    if(e.lt[0]==='KILL'&&(b.k===5||b.k===10||b.k===15))lines.push(`${P[id].ch.name} has ${b.k} kills now, hitting ${b.ta?((b.k-b.e)/b.ta).toFixed(3).replace(/^0/,''):'–'}.`);
+    if(e.lt[0]==='ACE'&&b.a>=2)lines.push(`That's ${b.a} aces for ${P[id].ch.name}. The receive line is under siege.`);
+    if(e.lt[0]==='BLOCK'&&b.b>=3)lines.push(`${P[id].ch.name} owns the net: ${+b.b.toFixed(1)} blocks.`);
+    if(e.lt[2]&&SKILLS[w].some(s=>s.name===e.lt[2])&&!G.firstBreak[e.lt[2]]){G.firstBreak[e.lt[2]]=1;lines.push(`First ${e.lt[2]} of the match, and it wins the point.`);}}
+  if(attacks>=6)lines.push(`${attacks} attacks in that rally. Legs will feel that one.`);
+  if(skills>=2)lines.push('Breakout answered by breakout. This is what the Spring Nationals are about.');
+  const tired=[...G.court.us,...G.court.them].filter(id=>P[id].sta<35);if(tired.length&&rnd()<.3)lines.push(`${P[tired[0]].ch.name} is running on fumes (${Math.round(P[tired[0]].sta)}% stamina).`);
+  return lines.length?lines[0]:null;}
 async function playAll(ev){for(const e of ev)await PLAY[e.t](e);}
 
 /* ================= Instant replay =================
@@ -898,11 +959,16 @@ function applySnap(c){const S=G.rec.snaps,rp=G.rp;while(rp.i<S.length-2&&S[rp.i+
   const B=G.ball;B.x=lerp(a.b[0],b.b[0],u);B.y=lerp(a.b[1],b.b[1],u);B.z=lerp(a.b[2],b.b[2],u);B.rot=a.b[3];B.vis=!!a.b[4];B.spd=a.b[5];B.fx=a.fx;G.active=a.act;
   B.trail.push(elev(B.x,B.y,B.z*ZK));if(B.trail.length>16)B.trail.shift();
   const ev=G.rec.ev;while(rp.e<ev.length&&ev[rp.e].t<=c){const x=ev[rp.e++];if(FXFN[x.name])FXFN[x.name](...x.args);}}
-async function replay(title,w){
+async function highlightReel(){const list=G.highlights.slice();if(!list.length)return;$('sheet').hidden=true;const keep=G.rec;
+  try{for(let i=0;i<list.length;i++){const h=list[i];G.rec=h.rec;await replay(`Highlight ${i+1} of ${list.length} · ${h.title}`,h.w,h.sc);}}catch(e){if(e!==ABORT)console.error(e);}
+  G.rec=keep;openSheet('final');}
+function mvp(){const won=G.T.us.sets>G.T.them.sets?'us':'them';const sc=id=>{const b=P[id].box;return b.k+b.a*1.2+b.b*1.2+b.d*.35+(b.r?b.rq/b.r*.5:0)-b.e*.5;};
+  return rosterIds(won).sort((a,b)=>sc(b)-sc(a))[0];}
+async function replay(title,w,sub){
   const S=G.rec.snaps;if(S.length<20)return;
   const end=S[S.length-1].t,tc=G.rec.touches;let s=tc.length>=3?tc[tc.length-3]-450:S[0].t;s=Math.max(S[0].t,s,end-5600);
   const keep=IDS.map(id=>{const p=P[id];return [p.x,p.y,p.tx,p.ty,p.face];}),kb={...G.ball,trail:[]},ka=G.active;
-  const el=$('replay');$('rpTitle').textContent=title;el.className='replay '+w;el.hidden=false;sfx('cutin');
+  const el=$('replay');$('rpTitle').textContent=title;$('rpSub').textContent=sub||'';$('rpSub').hidden=!sub;el.className='replay '+w;el.hidden=false;sfx('cutin');
   await wait(380);
   fxReset();G.replaying=true;let i0=0;while(i0<S.length-1&&S[i0].t<s)i0++;let e0=0;while(e0<G.rec.ev.length&&G.rec.ev[e0].t<s)e0++;
   G.rp={s,end:end+200,g0:G.time,i:Math.max(0,i0-1),e:e0,rate:G.speed>=4?1.1:G.speed>=2?.75:.42,skip:false};
@@ -930,7 +996,9 @@ async function timeout(k){const T=team(k);T.to--;sfx('horn');
   feed(`Timeout ${T.name}${run>=2?`, stopping a ${run}-point run`:''}`,'sys');ticker('Timeout',`${T.name} huddle up. Stamina recovers${run>=2?` and the ${run}-point run is broken`:''}.`,k);updateUI();
   formHuddle(k);G.ball.vis=false;const el=$('tob');el.textContent=`TIMEOUT · ${T.name.toUpperCase()} · ${T.to} LEFT`;el.className='tob show '+k;
   FX.huddles.push({k,t0:G.time});
-  if(k==='us'){await wait(900);const X=G.T.them.sty;
+  if(true){await wait(900);const X=G.T.them.sty,U=G.T.us;
+    if(k==='them'){await huddle('huddle',{title:`Tetsuheki timeout · ${U.abbr} ${U.score}–${G.T.them.score} ${G.T.them.abbr}`,text:`They stopped the clock, so your bench gets the huddle too. Tetsuheki are running ${STY_N[X.off]} · ${STY_N[X.srv]} · ${STY_N[X.def]}. Change your style now; it costs you no timeout.`});}
+    else
     await huddle('huddle',{title:`Timeout · ${G.T.us.abbr} ${G.T.us.score}–${G.T.them.score} ${G.T.them.abbr}`,text:`${T.to} timeout${T.to===1?'':'s'} left this set. Tetsuheki are running ${STY_N[X.off]} · ${STY_N[X.srv]} · ${STY_N[X.def]}. Change your style now; it takes effect on the next serve with no adjustment period.`});}
   else await wait(2600);
   el.className='tob';}
@@ -964,6 +1032,9 @@ function finish(){
   G.playing=false;G.live=false;const won=G.T.us.sets>G.T.them.sets;
   ticker('Final',won?'Hoshizora advances to the semifinal!':'Tetsuheki holds the wall. Find a better fit and run it back.',won?'us':'them');
   $('boxUs').innerHTML=boxTable('us');$('boxThem').innerHTML=boxTable('them');
+  {const id=mvp(),c=CH[id],b=P[id].box;$('mvpFace').replaceChildren(portrait(id,320));$('mvpName').textContent=`#${c.num} ${c.name}`;
+   $('mvpLine').textContent=`${c.t==='us'?'Hoshizora':'Tetsuheki'} · ${POSN[c.pos]} · ${b.k} K · ${b.a} A · ${+b.b.toFixed(1)} B · ${b.d} D`;$('mvp').className='mvp '+c.t;
+   $('hlBtn').hidden=!G.highlights.length;$('hlBtn').textContent=`Watch the ${G.highlights.length} best moments`;}
   $('resultTitle').textContent=won?'Hoshizora advances':'Tetsuheki advances';$('resultTitle').className='result '+(won?'win':'loss');
   $('resultLine').textContent=`Sets ${G.T.us.sets}–${G.T.them.sets}. ${leaders()}. Finished at ${cohesion('us')}% cohesion.`;
   const ids=rosterIds('us'),sum=key=>ids.reduce((s,id)=>s+P[id].box[key],0),tk=sum('k'),te=sum('e'),ta=sum('ta');
@@ -977,7 +1048,7 @@ function startMatch(){
   G.diff={practice:{f:.9,ai:-.08},pref:{f:.95,ai:0},nat:{f:1.04,ai:.08}}[document.querySelector('input[name=diff]:checked').value];
   G.bestOf=+document.querySelector('input[name=fmt]:checked').value;G.replays=document.querySelector('input[name=rpl]:checked').value==='on';
   for(const k of ['us','them']){const T=team(k);T.sets=0;T.meter=10;T.uses={};T.adjust=0;}for(const id in P)Object.assign(P[id],{sp:20,lock:false,held:0,zone:0,jK:1});
-  G.setNo=1;G.feedLog=[];G.stats={rallies:0,replays:0,skills:0};G.sinceReplay=9;
+  G.setNo=1;G.feedLog=[];G.stats={rallies:0,replays:0,skills:0};G.sinceReplay=9;G.ptsUs=0;G.ptsTot=0;G.highlights=[];G.firstBreak={};G.maxDef={us:0,them:0};closeCard();
   for(const id in P)P[id].sta=100;resetBox();fxReset();
   G.playing=true;G.live=true;G.paused=false;G.toQueue=false;$('pauseBtn').textContent='❚❚';$('sheet').hidden=true;resumeFn=null;
   newSet();updateUI();runMatch();
@@ -1106,6 +1177,8 @@ function drawToken(c,p,t){
   const still=Math.hypot(p.vx,p.vy)<.04&&j===0,ph=p.ch.num*1.7,bob=still?(Math.sin(t*.0045+ph)*.5+.5)*1.6*ui:0;
   let lx=0,ly=0;if(still&&G.ball.vis){const a=Math.atan2(G.ball.y-p.y,G.ball.x-p.x);lx=Math.cos(a)*1.6*ui;ly=Math.sin(a)*1.6*ui;}
   const gx=netX(p),E=elev(gx+lx,p.y+ly,lift+bob),x=E.x,y=E.y;
+  {const m=c.getTransform();G.hits.push({id:p.id,sx:m.a*x+m.c*y+m.e,sy:m.b*x+m.d*y+m.f,r:r*s*Math.hypot(m.a,m.b)});}
+  if(G.cardId===p.id){c.save();c.strokeStyle='#ffffff';c.lineWidth=2.5;c.setLineDash([6,4]);c.lineDashOffset=t*.03;c.beginPath();c.arc(x,y,r*s+15,0,7);c.stroke();c.restore();}
   if(p.zone>0){c.save();c.strokeStyle='#ffc83d';c.lineWidth=2;c.globalAlpha=.85;for(let i=0;i<2;i++){const a=t*.006*(i?-1:1)+i;c.beginPath();c.arc(x,y,r*s+12+i*3,a,a+1.6);c.stroke();c.beginPath();c.arc(x,y,r*s+12+i*3,a+Math.PI,a+Math.PI+1.6);c.stroke();}c.restore();}
   const ch=chargeOf(p.id);p.chg=(p.chg||0)+((ch?ch.f:0)-(p.chg||0))*.08;
   if(ch&&ch.ready)flame(c,x,y,r*s*1.05,t,p.team);
@@ -1201,7 +1274,7 @@ function drawFX(c,t,layer){
       c.fillStyle='#0b0e16';c.fillText(o.text,0,1.5*ui);}
     else{c.font=`800 ${Math.round(18*ui)}px "Barlow Condensed",sans-serif`;c.textAlign='center';c.textBaseline='middle';c.lineJoin='round';c.lineWidth=4;c.strokeStyle='rgba(6,8,14,.92)';c.strokeText(o.text,0,0);c.fillStyle=o.col;c.fillText(o.text,0,0);}
     c.restore();return true;});}
-function draw(now){const c=ctx,cam=G.cam;
+function draw(now){const c=ctx,cam=G.cam;G.hits=[];
   c.setTransform(1,0,0,1,0,0);c.fillStyle='#070b14';c.fillRect(0,0,cv.width,cv.height);
   let sx=0,sy=0;const se=(now-G.shk.t)/G.shk.d;if(se<1){const a=G.shk.a*Math.pow(1-se,2);sx=(Math.sin(now*.11)*.7+(rnd()-.5)*.6)*a;sy=(Math.cos(now*.13)*.7+(rnd()-.5)*.6)*a;}
   const z=cam.z*(1+cam.punch);
@@ -1215,7 +1288,7 @@ function draw(now){const c=ctx,cam=G.cam;
   for(const k of ['us','them'])for(const id of G.court[k])drawToken(c,P[id],now);
   drawNet(c);drawBall(c,now);drawFX(c,now,1);
   c.setTransform(1,0,0,1,0,0);c.drawImage(vig,0,0);
-  const ten=G.replaying?0:clamp((G.rallyShown-3)/4,0,1);if(ten>0){c.globalAlpha=ten*(.35+.25*Math.sin(now*.008));c.drawImage(vigHot,0,0);c.globalAlpha=1;}}
+  const ten=G.replaying?0:Math.max(clamp((G.rallyShown-3)/4,0,1),G.tense&&G.time-G.tense<2200?.9*(1-(G.time-G.tense)/2200):0);if(ten>0){c.globalAlpha=ten*(.35+.25*Math.sin(now*.008));c.drawImage(vigHot,0,0);c.globalAlpha=1;}}
 function smooth(cur,tgt,vel,st,maxS,dt){st=Math.max(1,st);const om=2/st,x=om*dt,ex=1/(1+x+.48*x*x+.235*x*x*x);let ch=cur-tgt;const mc=maxS*st;ch=clamp(ch,-mc,mc);const t2=cur-ch,tmp=(vel+om*ch)*dt;let v=(vel-om*tmp)*ex,out=t2+(ch+tmp)*ex;
   if((tgt-cur>0)===(out>tgt)){out=tgt;v=0;}return [out,v];}
 function update(dt){
@@ -1243,7 +1316,7 @@ function updateCam(dtR){const cam=G.cam,ct=G.camT,b=G.ball,k=1-Math.exp(-dtR/300
   cam.punch*=Math.exp(-dtR/160);for(const s of ['us','them'])G.cheer[s]*=Math.exp(-dtR/900);}
 let last=performance.now();
 function frame(now){const dtR=Math.min(50,now-last);last=now;let ts=(G.cut>0||G.paused)?0:G.replaying?G.rp.rate:G.speed;if(now<G.holdUntil)ts=0;else if(now<G.slowUntil)ts*=G.speed===1?.32:.6;
-  const dt=dtR*ts;G.time+=dt;update(dt);updateCam(dtR);draw(now);requestAnimationFrame(frame);}
+  const dt=dtR*ts;G.time+=dt;update(dt);updateCam(dtR);draw(now);if(G.cardId&&now-cardT>350){cardT=now;renderCard();}requestAnimationFrame(frame);}
 function resize(){const box=document.querySelector('.stagebox').getBoundingClientRect(),st=$('stage');
   const want=box.height>box.width*1.08;if(want!==st.classList.contains('portrait')){st.classList.toggle('portrait',want);}
   const r=cv.getBoundingClientRect();if(!r.width)return;ROT=r.height>r.width;let dpr=Math.min(3,window.devicePixelRatio||1);if(Math.max(r.width,r.height)*dpr>2800)dpr=2800/Math.max(r.width,r.height);
@@ -1324,6 +1397,7 @@ function updateUI(){
   $('setLabel').textContent=G.playing?`SET ${G.setNo}`:(U.sets+X.sets?'FINAL':'PRE-MATCH');
   const sp=G.playing&&(U.score>=G.target-1||X.score>=G.target-1)&&U.score!==X.score,lead=U.score>X.score?U:X;
   $('metaInfo').textContent=sp?`${lead.sets===need()-1?'Match':'Set'} point ${lead.abbr}`:`To ${G.target}`;$('metaInfo').classList.toggle('hot',sp);
+  {const wp=Math.round(winProb()*100);$('wpTxt').textContent=G.playing||U.sets+X.sets?`WIN ${wp}%`:'WIN 50%';$('wpFill').style.width=wp+'%';}
   $('meterUs').style.width=U.meter+'%';$('meterThem').style.width=X.meter+'%';$('spiritUs').textContent=U.meter;$('spiritThem').textContent=X.meter;
   const tos=(e,n)=>{const f=document.createDocumentFragment();for(let i=0;i<2;i++)f.appendChild(el('i',i>=n?'used':''));e.replaceChildren(f);};tos($('tosUs'),U.to);tos($('tosThem'),X.to);tos($('toPips'),U.to);
   const tb=$('toBtn');tb.disabled=!G.playing||U.to<=0;tb.classList.toggle('queued',G.toQueue);$('toTxt').textContent=G.toQueue?'Called':'Timeout';
@@ -1332,6 +1406,29 @@ function updateUI(){
   $('pauseBtn').disabled=!G.playing;
   $('live').classList.toggle('paused',G.paused||!G.playing);$('liveTxt').textContent=!G.playing?(U.sets+X.sets?'FINAL':'PRE-MATCH'):G.paused?'PAUSED':`LIVE · ${G.speed}×`;
   if(!$('sheet').hidden)renderStyle();}
+
+/* ================= Player card ================= */
+let cardT=0;
+function openCard(id){G.cardId=id;$('pcard').hidden=false;$('pcFace').replaceChildren(avatar([id],64));renderCard();sfx('tick');}
+function closeCard(){G.cardId=null;const e=$('pcard');if(e)e.hidden=true;}
+function renderCard(){const id=G.cardId;if(!id)return;const p=P[id],c=p.ch,b=p.box,k=p.team,T=team(k);
+  $('pcard').className='pcard '+k;$('pcName').textContent=`#${c.num} ${c.name}`;$('pcSub').textContent=`${k==='us'?'Hoshizora':'Tetsuheki'} · ${POSN[c.pos]}${G.court[k].includes(id)?'':' · on the bench'}`;
+  $('pcPhys').textContent=`${c.hgt} cm · reach ${c.reach} · vert ${c.vert} → spike ${(c.spikeTop/100).toFixed(2)} m · block ${(c.blockTop/100).toFixed(2)} m`;
+  const rows=[['Serve','srv'],['Receive','rcv'],['Set','set'],['Attack','atk'],['Block','blk'],['Dig','dig']].filter(([,k_])=>c.st[k_]>0);
+  const f=document.createDocumentFragment();for(const [n,k_] of rows){const base=c.st[k_],now=Math.round(rating(id,k_)*100),d=now-base;const r_=el('div','pc-r');
+    r_.append(el('span','',n));const bar=el('span','pc-bar');const i1=el('i');i1.style.width=Math.min(100,now)+'%';i1.className=d>=0?'up':'dn';bar.appendChild(i1);r_.appendChild(bar);
+    r_.append(el('b','',now),el('em',d>0?'up':d<0?'dn':'',(d>0?'+':'')+d));f.appendChild(r_);}
+  $('pcRates').replaceChildren(f);
+  const fit=k==='us'?fitOf(id,T.sty):fitOf(id,T.sty);
+  $('pcState').textContent=`Stamina ${Math.round(p.sta)}% · Spirit ${Math.round(p.sp)}%${p.sp>=100?' (ready)':''} · Style fit ${fit>0?'+':''}${fit*3}%${p.zone>0?` · IN THE ZONE (${p.zone})`:''}`;
+  const sk=SKILLS[k].filter(s=>s.who.includes(id));
+  $('pcSkills').replaceChildren(...sk.map(s=>{const d=el('div','pc-sk'+(s.kind==='team'?' team':''));d.append(el('b','',s.name),el('span','',s.kind==='team'?`Team · Bond ${T.meter}%`:`${s.kind==='duo'?'Duo with '+s.who.filter(x=>x!==id).map(nm).join(', ')+' · ':''}${s.need}`));return d;}));
+  $('pcBox').textContent=`Match: ${b.k} K · ${b.e} E · ${b.ta?((b.k-b.e)/b.ta).toFixed(3).replace(/^0/,''):'–'} · ${b.a} A · ${+b.b.toFixed(1)} B · ${b.d} D${b.r?` · pass ${(b.rq/b.r).toFixed(2)}`:''}`;}
+function hitAt(ev){const r=cv.getBoundingClientRect(),sx=(ev.clientX-r.left)*cv.width/r.width,sy=(ev.clientY-r.top)*cv.height/r.height;let best=null,bd=1e9;
+  for(const h of G.hits||[]){const d=Math.hypot(h.sx-sx,h.sy-sy);if(d<h.r*1.5+10&&d<bd){bd=d;best=h.id;}}return best;}
+cv.addEventListener('pointerdown',ev=>{const id=hitAt(ev);if(id){if(G.cardId===id)closeCard();else openCard(id);}else closeCard();});
+cv.addEventListener('pointermove',ev=>{if(ev.pointerType!=='mouse')return;cv.style.cursor=hitAt(ev)?'pointer':'default';});
+$('pcClose').addEventListener('click',closeCard);
 
 /* ================= Wire up ================= */
 document.querySelectorAll('input[name=st-off],input[name=st-srv],input[name=st-def]').forEach(r=>r.addEventListener('change',()=>{
@@ -1343,9 +1440,10 @@ $('pauseBtn').addEventListener('click',()=>{if(!G.playing)return;G.paused=!G.pau
 $('toBtn').addEventListener('click',()=>{if(!G.playing||G.T.us.to<=0)return;G.toQueue=!G.toQueue;
   if(G.toQueue)ticker('Bench','Timeout called. The huddle starts at the next dead ball.','us');updateUI();});
 $('rpSkip').addEventListener('click',()=>{if(G.rp)G.rp.skip=true;});
+$('hlBtn').addEventListener('click',()=>{highlightReel();});
 $('startBtn').addEventListener('click',()=>{if(sheetMode==='huddle'||sheetMode==='setbreak'){$('sheet').hidden=true;const f=resumeFn;resumeFn=null;if(f)f();updateUI();}else startMatch();});
 $('sheet').addEventListener('click',e=>{if(e.target===$('sheet')&&sheetMode==='final')$('sheet').hidden=true;});
-window.addEventListener('keydown',e=>{if(/INPUT|BUTTON/.test(e.target.tagName)||!G.playing||!$('sheet').hidden)return;
+window.addEventListener('keydown',e=>{if(e.key==='Escape')closeCard();if(/INPUT|BUTTON/.test(e.target.tagName)||!G.playing||!$('sheet').hidden)return;
   if(e.code==='Space'){e.preventDefault();if(G.replaying&&G.rp)G.rp.skip=true;else $('pauseBtn').click();}
   if(e.key==='t'||e.key==='T')$('toBtn').click();});
 document.addEventListener('visibilitychange',()=>{last=performance.now();});
