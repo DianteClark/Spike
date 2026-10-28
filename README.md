@@ -2,7 +2,7 @@
 
 An anime volleyball coach sim in a single HTML file. You coach Hoshizora High against Tetsuheki Academy's Iron Wall in the Spring Nationals quarterfinal.
 
-**Play it:** https://dianteclark.github.io/spike/
+**Play it:** https://dianteclark.github.io/Spike/
 
 ## How it plays
 
